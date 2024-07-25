@@ -7,9 +7,13 @@ class Car:
     ) -> None:
         if comfort_class in range(1, 7 + 1):
             self.comfort_class = comfort_class
+        else:
+            self.comfort_class = 7
 
         if clean_mark in range(1, 10 + 1):
             self.clean_mark = clean_mark
+        else:
+            self.clean_mark = 1
 
         self.brand = brand
 
@@ -20,18 +24,27 @@ class CarWashStation:
             distance_from_city_center: float = 1.0,
             clean_power: int = 5,
             average_rating: float = 3.5,
-            count_of_ratings: int = 100
+            count_of_ratings: int = 10
     ) -> None:
         if 1.0 <= distance_from_city_center <= 10.0:
             self.distance_from_city_center = distance_from_city_center
+        else:
+            self.distance_from_city_center = 1.0
 
         if clean_power in range(1, 10 + 1):
             self.clean_power = clean_power
+        else:
+            self.clean_power = 5
 
         if 1.0 <= average_rating <= 5.0:
             self.average_rating = average_rating
+        else:
+            self.average_rating = 3.5
 
-        self.count_of_ratings = count_of_ratings
+        if count_of_ratings > 0:
+            self.count_of_ratings = count_of_ratings
+        else:
+            self.count_of_ratings = 10
 
     def serve_cars(self, cars: list) -> float:
         income = 0.0
